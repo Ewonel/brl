@@ -3,6 +3,7 @@ package cz.legas.brl.controller;
 import cz.legas.brl.service.PlayerService;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -25,13 +26,19 @@ public class PlayerController {
         return playerService.initializePlayer(name, latitude, longitude);
     }
 
-    @PutMapping("/actualize")
-    public void actualizePlayer (@RequestParam @NotNull Long id, @RequestParam Double latitude, @RequestParam Double longitude){
-        playerService.actualizePlayer(id, latitude, longitude);
+    @PutMapping("/update")
+    public void updatePlayer(@RequestParam @NotNull Long id, @RequestParam Double latitude, @RequestParam Double longitude){
+        playerService.updatePlayer(id, latitude, longitude);
     }
 
     @GetMapping("/kill")
     public void killPlayer (@RequestParam @NotNull Long id){
         playerService.killPlayer(id);
+    }
+
+    @PostMapping("/locationCheck")
+    public String locationCheck (@RequestParam @NotNull Long id){
+        //TODO check in DB there will be location of center of white actual circle
+        return "dead";
     }
 }

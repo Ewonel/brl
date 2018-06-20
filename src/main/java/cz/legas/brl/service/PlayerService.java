@@ -27,12 +27,14 @@ public class PlayerService {
     }
 
     @Transactional
-    public void actualizePlayer(Long id, Double latitude, Double longitude) {
-        playerRepository.actualize(id, latitude, longitude);
+    public void updatePlayer(Long id, Double latitude, Double longitude) {
+        playerRepository.update(id, latitude, longitude);
     }
 
     @Transactional
     public void killPlayer (Long id){
         playerRepository.kill(id);
     }
+
+
 }
