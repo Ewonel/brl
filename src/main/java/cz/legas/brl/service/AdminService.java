@@ -1,7 +1,7 @@
 package cz.legas.brl.service;
 
-import cz.legas.brl.Repository.PlayerRepository;
 import cz.legas.brl.dto.Player;
+import cz.legas.brl.repository.PlayerRepository;
 import lombok.val;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;

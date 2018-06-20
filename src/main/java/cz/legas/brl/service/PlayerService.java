@@ -1,7 +1,7 @@
 package cz.legas.brl.service;
 
-import cz.legas.brl.Repository.PlayerRepository;
 import cz.legas.brl.entity.Player;
+import cz.legas.brl.repository.PlayerRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 

@@ -1,4 +1,4 @@
-package cz.legas.brl.Repository;
+package cz.legas.brl.repository;
 
 import cz.legas.brl.entity.Player;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -21,9 +21,9 @@ public interface PlayerRepository extends JpaRepository<Player, Long> {
 
     @Modifying
     @Query("update Player p set p.latitude=:latitude, p.longitude=:longitude where p.id = :id")
-    List<Player> actualize(@Param("id") Long id, @Param("latitude") Double latitude, @Param("longitude") Double longitude);
+    int actualize(@Param("id") Long id, @Param("latitude") Double latitude, @Param("longitude") Double longitude);
 
     @Modifying
     @Query("update Player p set p.alive=false where p.id = :id")
-    List<Player> kill(@Param("id") Long id);
+    int kill(@Param("id") Long id);
 }
