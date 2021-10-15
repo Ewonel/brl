@@ -24,6 +24,10 @@ public interface PlayerRepository extends JpaRepository<Player, Long> {
     int update(@Param("id") Long id, @Param("latitude") Double latitude, @Param("longitude") Double longitude);
 
     @Modifying
+    @Query("update Player p set p.latitude=:latitude, p.longitude=:longitude where p.name = :name")
+    int updateByName(@Param("name") String name, @Param("latitude") Double latitude, @Param("longitude") Double longitude);
+
+    @Modifying
     @Query("update Player p set p.alive=false where p.id = :id")
     int kill(@Param("id") Long id);
 }

@@ -32,6 +32,11 @@ public class PlayerService {
     }
 
     @Transactional
+    public void updatePlayerByName(String name, Double latitude, Double longitude) {
+        playerRepository.updateByName(name, latitude, longitude);
+    }
+
+    @Transactional
     public void killPlayer (Long id){
         playerRepository.kill(id);
     }
